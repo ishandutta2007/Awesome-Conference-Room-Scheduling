@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="50%" stop-color="#1e1b4b" />
+      <stop offset="100%" stop-color="#311042" />
+    </linearGradient>
+
+    <!-- Accent Gradients -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="50%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+
+    <!-- Card/Glass Gradient -->
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.07" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.02" />
+    </linearGradient>
+    
+    <!-- Glow Filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Dynamic Styles & Keyframe Animations -->
+  <style>
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+    @keyframes floatCard1 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes floatCard2 {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(12px); }
+    }
+    @keyframes sweepLine {
+      0% { stroke-dashoffset: 1000; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes radarPulse {
+      0% { r: 5px; opacity: 0.9; }
+      100% { r: 45px; opacity: 0; }
+    }
+    
+    .bg-circle { animation: pulseGlow 6s ease-in-out infinite; transform-origin: center; }
+    .card-1 { animation: floatCard1 5s ease-in-out infinite; }
+    .card-2 { animation: floatCard2 6s ease-in-out infinite; }
+    .pulse-ring { animation: radarPulse 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; transform-origin: center; }
+  </style>
+
+  <!-- Dark Background Base -->
+  <rect width="1200" height="300" fill="url(#bgGrad)" rx="16" />
+
+  <!-- Background Animated Glowing Orbs -->
+  <circle class="bg-circle" cx="150" cy="80" r="140" fill="#4f46e5" opacity="0.25" filter="url(#glow)" />
+  <circle class="bg-circle" cx="1050" cy="220" r="160" fill="#c026d3" opacity="0.2" filter="url(#glow)" />
+
+  <!-- Decorative Tech Grid & Abstract Lines -->
+  <path d="M0,220 Q 300,140 600,220 T 1200,160" fill="none" stroke="#6366f1" stroke-width="1.5" opacity="0.15" />
+  <path d="M0,80 Q 400,240 800,100 T 1200,200" fill="none" stroke="#a855f7" stroke-width="1.5" opacity="0.15" />
+
+  <!-- Animated Dynamic Background Elements (Lower Layer) -->
+  <!-- Left Side: Interactive Desk / Booking Node Mockup Card -->
+  <g class="card-1" transform="translate(60, 65)">
+    <rect width="220" height="170" rx="12" fill="url(#glassGrad)" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1" />
+    <circle cx="35" cy="35" r="12" fill="#22c55e" opacity="0.9" />
+    <circle class="pulse-ring" cx="35" cy="35" r="12" fill="none" stroke="#22c55e" stroke-width="2" />
+    <rect x="60" y="28" width="120" height="14" rx="4" fill="#ffffff" opacity="0.8" />
+    <rect x="60" y="48" width="80" height="8" rx="3" fill="#94a3b8" opacity="0.5" />
+    
+    <rect x="25" y="80" width="170" height="32" rx="6" fill="#1e293b" opacity="0.8" stroke="#334155" stroke-width="1" />
+    <text x="38" y="101" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">CONF-ROOM-A • RESERVED</text>
+
+    <rect x="25" y="122" width="170" height="32" rx="6" fill="#1e293b" opacity="0.5" />
+    <text x="38" y="143" fill="#a855f7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600">POD-04 • AVAILABLE</text>
+  </g>
+
+  <!-- Right Side: Analytics & Utilization Graphic Card -->
+  <g class="card-2" transform="translate(920, 65)">
+    <rect width="220" height="170" rx="12" fill="url(#glassGrad)" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1" />
+    <text x="25" y="32" fill="#f8fafc" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700">Workspace Utilization</text>
+    
+    <!-- Mini Bar Chart -->
+    <rect x="30" y="110" width="20" height="40" rx="4" fill="#6366f1" opacity="0.8" />
+    <rect x="65" y="80" width="20" height="70" rx="4" fill="url(#accentGrad)" />
+    <rect x="100" y="95" width="20" height="55" rx="4" fill="#a855f7" opacity="0.8" />
+    <rect x="135" y="65" width="20" height="85" rx="4" fill="#ec4899" opacity="0.9" />
+    <rect x="170" y="105" width="20" height="45" rx="4" fill="#38bdf8" opacity="0.7" />
+    
+    <line x1="25" y1="155" x2="195" y2="155" stroke="#475569" stroke-width="1" />
+  </g>
+
+  <!-- FOREGROUND TEXT AND HEADINGS (Guaranteed readable & prominent) -->
+  <g text-anchor="middle" transform="translate(600, 0)">
+    <!-- Decorative Badge -->
+    <rect x="-140" y="42" width="280" height="28" rx="14" fill="url(#accentGrad)" opacity="0.2" stroke="url(#accentGrad)" stroke-width="1" />
+    <text x="0" y="61" fill="#f472b6" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" letter-spacing="2">CURATED ECOSYSTEM DIRECTORY</text>
+
+    <!-- Main Title with Gradient Fill & Drop Shadow -->
+    <text x="0" y="132" fill="url(#accentGrad)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="42" font-weight="900" letter-spacing="-0.5" filter="url(#glow)">
+      Awesome Conference Room Scheduling
+    </text>
+    <text x="0" y="132" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="42" font-weight="900" letter-spacing="-0.5">
+      Awesome Conference Room Scheduling
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="178" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="17" font-weight="400" letter-spacing="0.2">
+      Top Enterprise SaaS Platforms, Desk Booking &amp; Open-Source Workspace Scheduling Systems
+    </text>
+
+    <!-- Stat Pills -->
+    <g transform="translate(-180, 210)">
+      <rect x="0" y="0" width="110" height="30" rx="15" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="55" y="19" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle">🏢 Enterprise SaaS</text>
+    </g>
+    <g transform="translate(-55, 210)">
+      <rect x="0" y="0" width="110" height="30" rx="15" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="55" y="19" fill="#a855f7" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle">⚡ Open Source</text>
+    </g>
+    <g transform="translate(70, 210)">
+      <rect x="0" y="0" width="110" height="30" rx="15" fill="#1e293b" stroke="#475569" stroke-width="1" />
+      <text x="55" y="19" fill="#22c55e" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="600" text-anchor="middle">📅 Desk Booking</text>
+    </g>
+  </g>
+</svg>
